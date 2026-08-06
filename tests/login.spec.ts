@@ -11,16 +11,11 @@ test("standard_user can login", async ({ page }) => {
 
   await expect(page).toHaveURL(/.*inventory.html/);
   await expect(page.getByText("Products")).toBeVisible();
-  const productText = await page.getByTestId("title").textContent();
-  console.log(productText);
+  await expect(page.getByTestId("title")).toHaveText("Products");
 
-  //   await page.getByRole("button", { name: "Add to cart" }).first().click();
-
-  const product = await page
+  const product = page
     .getByTestId("inventory-item")
     .filter({ hasText: "Sauce Labs Bike Light" });
 
   await product.getByRole("button", { name: "Add to cart" }).click();
-
-  await new Promise((r) => setTimeout(r, 20000));
 });
