@@ -1,5 +1,6 @@
 import { test, expect } from "../fixtures";
-import { LoginPage } from "../pages/LoginPage";
+
+test.use({ storageState: { cookies: [], origins: [] } });
 
 test.describe("authentication", () => {
   test("standard_user can login", async ({ loginPage, page }) => {

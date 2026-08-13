@@ -13,14 +13,9 @@ export const test = base.extend<Fixtures>({
   },
 
   inventoryPage: async ({ page }, use) => {
-    console.log("Setup:Login");
-    const loginPage = new LoginPage(page);
-    await loginPage.open();
-    await loginPage.login("standard_user", "secret_sauce");
-
-    await use(new InventoryPage(page));
-
-    console.log("Teardown: done");
+    const inventory = new InventoryPage(page);
+    inventory.open();
+    await use(inventory);
   },
 });
 
