@@ -14,7 +14,7 @@ export const test = base.extend<Fixtures>({
 
   inventoryPage: async ({ page }, use) => {
     const inventory = new InventoryPage(page);
-    inventory.open();
+    await inventory.open();
     await use(inventory);
   },
 });
