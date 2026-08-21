@@ -3,7 +3,7 @@ import { test, expect } from "../fixtures";
 test.use({ storageState: { cookies: [], origins: [] } });
 
 test.describe("authentication", () => {
-  test("standard_user can login", async ({ loginPage, page }) => {
+  test("standard_user can login @SMOKE", async ({ loginPage, page }) => {
     await loginPage.open();
     await loginPage.login("standard_user", "secret_sauce");
 
